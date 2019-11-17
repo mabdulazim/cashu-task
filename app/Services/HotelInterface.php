@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-interface HotelContract
+interface HotelInterface
 {
     public function getHotelsData($dateFrom, $dateTo, $city, $adultsCount);
 }

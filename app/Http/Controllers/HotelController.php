@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Services\HotelService;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\HotelRequest;
 
 class HotelController extends Controller
 {
+    /**
+     * hotel service 
+     *
+     * @var object
+     */
     private $hotelService;
 
     public function __construct(HotelService $hotelService)
@@ -15,13 +20,22 @@ class HotelController extends Controller
         $this->hotelService = $hotelService;
     }
     
-    public function index(Request $request)
+    /**
+     * get hotels data list
+     * @param date $from_date
+     * @param date $to_date
+     * @param string 3 letters $city
+     * @param integer $adults_number
+     * @return array
+     */
+
+    public function index(HotelRequest $request)
     {
         $hotels = $this->hotelService->getHotels(
-            $request->dateFrom, 
-            $request->dateTo, 
+            $request->from_date, 
+            $request->to_date, 
             $request->city, 
-            $request->adultsCount
+            $request->adults_number
         );
 
         return response()->json($hotels);

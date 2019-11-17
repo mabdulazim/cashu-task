@@ -8,8 +8,16 @@ use App\ThirdParty\TopHotel;
 // TRANSFORMERS
 use App\Transformers\TopHotelTransformer;
 
-class TopHotelService implements HotelContract
+class TopHotelService implements HotelInterface
 {   
+    /**
+     * get hotels data from TopHotel provider and map data
+     * @param date $dateFrom
+     * @param date $dateTo
+     * @param string 3 letters $city
+     * @param integer $adultsCount
+     * @return array
+     */
     public function getHotelsData($dateFrom, $dateTo, $city, $adultsCount)
     {
         // CREATE NEW OBJECT FROM TopHotel THIRD PARTY API
