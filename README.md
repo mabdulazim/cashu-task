@@ -1,4 +1,4 @@
-# cashu-task
+# hotel-search-task
 > ### hotel search solution that look into many providers and display results from all the available hotels.
 
 ----------
